@@ -16,4 +16,4 @@ proyecto_final/
 .env.*
 
 # Archivos
-.csv
+*.csv
