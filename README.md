@@ -17,5 +17,5 @@ pip install -r requirements.txt
 
 # Uso
 
-Asegúrate de tener tu API_KEY de [AQICN](https://aqicn.org/data-platform/token/es/) configurada en un archivo .env en la raíz del proyecto.
-Ejecuta el script principal main.py para extraer, transformar y exportar los datos de calidad del aire.
+- Asegúrate de tener tu API_KEY de [AQICN](https://aqicn.org/data-platform/token/es/) configurada en un archivo .env en la raíz del proyecto.
+- Ejecuta el script principal main.py para extraer, transformar y exportar los datos de calidad del aire.
