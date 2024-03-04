@@ -1,0 +1,19 @@
+# Archivos y directorios generados automáticamente
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.vscode/
+
+# Entorno virtual
+venv/
+env/
+.venv/
+proyecto_final/
+
+# Archivos de configuración locales
+.env
+.env.*
+
+# Archivos
+.csv
