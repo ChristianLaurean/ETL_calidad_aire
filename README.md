@@ -28,5 +28,18 @@ pip install -r requirements.txt
 
 # Uso
 
-- Asegúrate de tener tu API_KEY de [AQICN](https://aqicn.org/data-platform/token/es/) configurada en un archivo .env en la raíz del proyecto.
-- Ejecuta el script principal main.py para extraer, transformar y exportar los datos de calidad del aire.
+Antes de ejecutar el script principal `main.py` para extraer, transformar y cargar los datos de calidad del aire, asegúrate de seguir estos pasos:
+
+1. Asegúrate de tener tu `API_KEY` de AQICN configurada en un archivo `.env` en la raíz del proyecto. Si aún no tienes una API_KEY, puedes obtenerla registrándote en [AQICN](https://aqicn.org/data-platform/token/es/) y siguiendo las instrucciones para obtener tu clave de API.
+
+2. Además, necesitarás configurar las credenciales de tu base de datos Redshift en el mismo archivo `.env`. Asegúrate de incluir las siguientes variables de entorno:
+
+   ```plaintext
+   DATABASE_USER=nombre_de_usuario_de_redshift
+   PASSWORD=contraseña_de_redshift
+   HOST=host_de_redshift
+   PORT=puerto_de_redshift
+   DB=nombre_de_la_base_de_datos_redshift
+   ```
+
+   Una vez configuradas las credenciales en el archivo .env, puedes ejecutar el script principal main.py para comenzar el proceso de extracción, transformación y carga de los datos.
