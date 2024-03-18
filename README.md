@@ -8,7 +8,7 @@ La calidad del aire es un factor importante que afecta la salud y el bienestar d
 
 #### Niveles de Calidad del Aire
 
-| ICA     | Nivel de contaminación del aire       | Implicaciones para la salud                                                                                                                                                   |
+| AQI     | Nivel de contaminación del aire       | Implicaciones para la salud                                                                                                                                                   |
 | ------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0-50    | Buena                                 | La calidad del aire es satisfactoria y la contaminación del aire representa poco o ningún riesgo para la salud.                                                               |
 | 51-100  | Moderada                              | La calidad del aire es aceptable; sin embargo, puede haber una preocupación para un pequeño grupo de personas que son excepcionalmente sensibles a la contaminación del aire. |

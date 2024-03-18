@@ -2,9 +2,12 @@ import pandas as pd
 import requests
 import os
 import logging
+import psycopg2
 from dotenv import load_dotenv
 # importamos el tipo de dato
 from typing import Generator
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
 from constants import LIST_COLUMNAS_DF, LIST_NOMBRE_COLUMNAS, LIST_CIUDADES
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s - %(asctime)s - Message: %(message)s", datefmt="%Y-%m-%d")
@@ -32,7 +35,6 @@ def extraer_datos_api(url:str,params=None)-> dict:
         logging.error(f'Error al consultar la API: {err}')
         
     
-
 
 
 def obtener_datos_ciudades(ciudades:list, url_base:str, params:dict)-> Generator:
@@ -99,6 +101,9 @@ def transformar_datos(datos:Generator) -> pd.DataFrame:
 
             # Concatenar el DataFrame de la ciudad actual al DataFrame final
             df_calidad_aire = pd.concat([df_calidad_aire, df_ciudad])
+
+            # Convertir la columna 'Fecha_Hora_Medicion' a objetos Timestamp
+            df_calidad_aire['fecha_hora_medicion'] = pd.to_datetime(df_calidad_aire['fecha_hora_medicion'])
             
         except Exception as err:
             logging.error(f'No Hay datos en esa ciudad: {ciudad}')
@@ -109,11 +114,66 @@ def transformar_datos(datos:Generator) -> pd.DataFrame:
 
 
 
-def crear_archivo(df):
-    # eliminamos el index
-    df = df.reset_index(drop=True)
-    # exportamos el archivo csv
-    df.to_csv('calidad_aire.csv',index=False)
+def cargar_datos_nuevos(df_nuevos_datos: pd.DataFrame, session: object) -> pd.DataFrame:
+    """
+    Carga los nuevos datos en el DataFrame.
+
+    Args:
+        df_nuevos_datos (pd.DataFrame): DataFrame que contiene los nuevos datos a cargar.
+        session (object): Objeto de sesión de la base de datos.
+
+    Returns:
+        pd.DataFrame: DataFrame con los nuevos datos.
+    """
+    datos_existentes_db = pd.read_sql_query("SELECT fecha_hora_medicion, ciudad FROM calidad_aire", session)
+    df_existente = df_nuevos_datos.merge(datos_existentes_db, on=['fecha_hora_medicion', 'ciudad'])
+    #filtramos los datos que ya se encuentran en la db y retornamos los datos que no están en la db
+    return df_nuevos_datos[~df_nuevos_datos.set_index(['fecha_hora_medicion', 'ciudad']).index.isin(df_existente.set_index(['fecha_hora_medicion', 'ciudad']).index)]
+
+
+
+
+def establecer_conexion_db():
+    """
+    Establece una conexión con la base de datos.
+
+    Returns:
+        object: Objeto de sesión de la base de datos.
+    """
+    try:
+        engine = create_engine(f"postgresql+psycopg2://{os.getenv('DATABASE_USER')}:{os.getenv('PASSWORD')}@{os.getenv('HOST')}:{os.getenv('PORT')}/{os.getenv('DB')}")
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        return session
+    except Exception as e:
+        logging.error("Error al conectarse a la base de datos:", e)
+
+
+
+
+def cargar_datos(df_calidad_aire: pd.DataFrame):
+    """
+    Carga los datos en la base de datos.
+
+    Args:
+        df_calidad_aire (pd.DataFrame): DataFrame que contiene los datos a cargar.
+    """
+    session = establecer_conexion_db()
+    try:
+        #si no hay datos en la db se insertan.
+        df_registros = pd.read_sql_query(f"SELECT * FROM calidad_aire LIMIT 1", session.bind)
+        if len(df_registros) == 0:
+            df_calidad_aire.to_sql('calidad_aire', session.bind, if_exists='append', index=False)
+            logging.info('Datos insertados exitosamente')
+        else:
+            # insertamos los datos nuevos a la db
+            cargar_datos_nuevos(df_calidad_aire, session.bind).to_sql('calidad_aire', session.bind, if_exists='append', index=False)
+            logging.info('Datos insertados exitosamente')
+    except TypeError as e:
+        logging.error("Error durante la carga de datos:", e)
+    finally:
+        session.close()
+        logging.info('Conexión cerrada')
 
 
 
@@ -133,6 +193,6 @@ if __name__ == '__main__':
     if df_calidad_aire.empty:
         logging.info('Hubo un error al obtener los datos')
     else:
-        # Creamos un csv
-        crear_archivo(df_calidad_aire)
+        #carga
+        cargar_datos(df_calidad_aire)
         logging.info('Terminado')
