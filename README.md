@@ -43,3 +43,32 @@ Antes de ejecutar el script principal `main.py` para extraer, transformar y carg
    ```
 
    Una vez configuradas las credenciales en el archivo .env, puedes ejecutar el script principal main.py para comenzar el proceso de extracción, transformación y carga de los datos.
+
+## Instalación y uso con Docker
+
+Si prefieres ejecutar el programa en Docker, asegúrate de tener Docker instalado en tu máquina local. Puedes descargar e instalar Docker desde [este enlace](https://www.docker.com/get-started).
+
+Una vez que tengas Docker instalado, sigue estos pasos:
+
+1. Clona este repositorio en tu máquina local si no lo has hecho ya.
+   (recuerda crear un archivo .env y agregar las credenciales).
+
+2. Abre una terminal y navega hasta la carpeta raíz del proyecto.
+
+3. Construye la imagen Docker ejecutando el siguiente comando:
+
+   ```bash
+   docker build -t nombre_imagen .
+   ```
+
+   Asegúrate de reemplazar `nombre_imagen` con el nombre que deseas darle a tu imagen Docker.
+
+4. Una vez que la imagen se haya construido correctamente, puedes ejecutar el contenedor Docker utilizando el siguiente comando:
+
+   ```bash
+   docker run -it --name nombre_contenedor nombre_imagen
+   ```
+
+   Reemplaza `nombre_contenedor` con el nombre que deseas darle a tu contenedor Docker y `nombre_imagen` con el nombre de la imagen que has creado anteriormente.
+
+¡Y eso es todo! Ahora deberías poder ejecutar el ETL en Docker de manera fácil y rápida.

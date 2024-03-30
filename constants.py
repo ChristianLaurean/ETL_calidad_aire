@@ -1,3 +1,18 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+
+# Url base de la Api
+URL = 'https://api.waqi.info/feed/'
+
+# Parametros neecesario de la API
+PARAMS = {
+    'token': os.getenv('API_KEY') 
+    }
+
 # Son las columnas del DataFrame que se necesitan 
 LIST_COLUMNAS_DF = [
     'time.s',
@@ -57,3 +72,5 @@ LIST_CIUDADES = [
      'Leon',
      'Buenos Aires',
      'Medellin']
+
+
