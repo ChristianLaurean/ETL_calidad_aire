@@ -65,7 +65,6 @@ LIST_CIUDADES = [
      'Aguascalientes',
      'Merida',
      'Toluca',
-     'Morelia',
      'Durango',
      'Chihuahua',
      'San luis Potosi',

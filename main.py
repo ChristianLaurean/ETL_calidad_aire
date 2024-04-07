@@ -111,6 +111,7 @@ class ETLdeCalidadAire:
 
                 # Convertir la columna 'Fecha_Hora_Medicion' a objetos Timestamp
                 df_calidad_aire['fecha_hora_medicion'] = pd.to_datetime(df_calidad_aire['fecha_hora_medicion'])
+                
         
             except Exception as err:
                 logging.error(f'No Hay datos en esa ciudad: {ciudad}')
