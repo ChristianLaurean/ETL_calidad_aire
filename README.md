@@ -18,11 +18,26 @@ La calidad del aire es un factor crítico que influye en la salud y el bienestar
 | 4   | Dañina a la salud                     | Todos pueden comenzar a experimentar efectos en la salud; las personas en grupos sensibles pueden experimentar efectos más serios en la salud.                                |
 | 5   | Muy dañina a la salud                 | Advertencia de salud: más efectos de salud esperados.                                                                                                                         |
 
-El siguiente diagrama ilustra la arquitectura de la canalización de datos de un extremo a otro.
+### Objetivos del Proyecto:
+
+- Proporcionar información actualizada sobre la calidad del aire en ciudades específicas.
+- Analizar y comprender los factores que influyen en la calidad del aire, incluyendo datos meteorológicos y geográficos.
+- Automatizar el proceso de extracción, transformación y carga de datos para garantizar la actualización continua de la información.
+
+### Arquitectura del Proyecto
+
+El siguiente diagrama ilustra la arquitectura de la canalización de datos de un extremo a otro:
 
 ![diagram](https://github.com/ChristianLaurean/ETL_calidad_aire/blob/main/assets/diagramETL.png)
 
-## Tecnologías Utilizadas
+### Componentes de la Arquitectura:
+
+- Extracción de Datos: Utiliza las APIs de OpenWeatherMap y LocationIQ para obtener datos sobre la calidad del aire, datos meteorológicos y datos geográficos.
+- Transformación de Datos: Utiliza el procesamiento de datos con Pandas para limpiar, transformar y combinar los datos obtenidos.
+- Carga de Datos: Almacena los datos transformados en Amazon Redshift para su análisis y consulta posterior.
+-
+
+### Tecnologías Utilizadas
 
 - Orquestación del flujo de trabajo: _Apache Airflow_
 - Procesamiento de datos: _Pandas_
