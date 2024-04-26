@@ -60,6 +60,7 @@ El siguiente diagrama ilustra la arquitectura de la canalización de datos de un
    AWS_DB=""
    EMAIL_PASSWORD=""
    ```
+   **Nota importante:** No olvides configurar tu dirección de correo electrónico (`EMAIL_PASSWORD=""`) para recibir notificaciones sobre el estado del proyecto. Asegúrate de definir las variables `EMAIL_SENDER` y `EMAIL_RECIPIENT` en el archivo `constants.py` con tus direcciones de correo electrónico.
 
 # Ejecución del Proyecto
 
