@@ -1,74 +1,57 @@
-# Proyecto: Calidad del Aire en ciudades
+# Proyecto: Calidad del Aire
 
-Este proyecto se centra en la extracción, transformación y carga de los datos sobre la calidad del aire en diversas ciudades utilizando la API proporcionada por [AQICN](https://aqicn.org/json-api/doc/).
+Este proyecto se centra en la extracción, transformación y carga de datos sobre la calidad del aire en diversas ciudades utilizando las APIs proporcionadas por [OpenWeatherMap](https://openweathermap.org/) y [LocationIQ](https://es.locationiq.com/).
 
 ## Descripción del Proyecto
 
-La calidad del aire es un factor importante que afecta la salud y el bienestar de las personas. Este proyecto utiliza datos en tiempo real de la API de AQICN para proporcionar información actualizada sobre los niveles de contaminación atmosférica en ciudades específicas.
+La calidad del aire es un factor crítico que influye en la salud y el bienestar de las comunidades urbanas en todo el mundo. Este proyecto se enfoca en la extracción, transformación y carga de datos sobre la calidad del aire en ciudades específicas utilizando las APIs de [OpenWeatherMap](https://openweathermap.org/) y [LocationIQ](https://es.locationiq.com/). La combinación de estos dos conjuntos de datos enriquece la comprensión y el análisis de la calidad del aire al incorporar información tanto meteorológica como geográfica.
 
 #### Niveles de Calidad del Aire
 
-| AQI     | Nivel de contaminación del aire       | Implicaciones para la salud                                                                                                                                                   |
-| ------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0-50    | Buena                                 | La calidad del aire es satisfactoria y la contaminación del aire representa poco o ningún riesgo para la salud.                                                               |
-| 51-100  | Moderada                              | La calidad del aire es aceptable; sin embargo, puede haber una preocupación para un pequeño grupo de personas que son excepcionalmente sensibles a la contaminación del aire. |
-| 101-150 | Dañina a la salud de grupos sensibles | Los miembros de grupos sensibles pueden experimentar efectos en la salud. La población en general no está en riesgo.                                                          |
-| 151-200 | Dañina a la salud                     | Todos pueden comenzar a experimentar efectos en la salud; las personas en grupos sensibles pueden experimentar efectos más serios en la salud.                                |
-| 201-300 | Muy dañina a la salud                 | Advertencia de salud: más efectos de salud esperados.                                                                                                                         |
-| 301-500 | Peligroso                             | Alerta de emergencia de salud: la población en general es más probable que se vea afectada.                                                                                   |
+| AQI | Nivel de contaminación del aire       | Implicaciones para la salud                                                                                                                                                   |
+| --- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Buena                                 | La calidad del aire es satisfactoria y la contaminación del aire representa poco o ningún riesgo para la salud.                                                               |
+| 2   | Moderada                              | La calidad del aire es aceptable; sin embargo, puede haber una preocupación para un pequeño grupo de personas que son excepcionalmente sensibles a la contaminación del aire. |
+| 3   | Dañina a la salud en grupos sensibles | Los miembros de grupos sensibles pueden experimentar efectos en la salud. La población en general no está en riesgo.                                                          |
+| 4   | Dañina a la salud                     | Todos pueden comenzar a experimentar efectos en la salud; las personas en grupos sensibles pueden experimentar efectos más serios en la salud.                                |
+| 5   | Muy dañina a la salud                 | Advertencia de salud: más efectos de salud esperados.                                                                                                                         |
+
+## Tecnologías Utilizadas
+
+- Orquestación del flujo de trabajo: _Apache Airflow_
+- Procesamiento de datos: _Pandas_
+- Almacenamiento de datos: _Amazon Redshift_
 
 ## Instalación
 
 1. Clona este repositorio en tu máquina local.
-2. Instala las dependencias necesarias utilizando el siguiente comando:
+2. Asegúrate de tener tus claves de API de OpenWeatherMap y LocationIQ configuradas en un archivo .env en la raíz del proyecto.
+3. Configuración del Archivo .env: Define las variables de entorno necesarias en el archivo .env con la siguiente estructura:
+   ```
+   AIRFLOW_UID=1000
+   OPENWEATHERMAP_API_KEY=""
+   LOCATIONIQ_API_KEY=""
+   # Variables para Redshift
+   AWS_USER=""
+   AWS_PASSWORD=""
+   AWS_HOST=""
+   AWS_PORT=
+   AWS_DB=""
+   EMAIL_PASSWORD=""
+   ```
+
+# Ejecución del Proyecto
+
+Inicia Apache Airflow utilizando Docker Compose con el siguiente comando:
 
 ```bash
-pip install -r requirements.txt
+docker-compose up airflow-init
 ```
 
-# Uso
+```bash
+docker-compose --env-file .env up --build -d
+```
 
-Antes de ejecutar el script principal `main.py` para extraer, transformar y cargar los datos de calidad del aire, asegúrate de seguir estos pasos:
+## Uso Continuo
 
-1. Asegúrate de tener tu `API_KEY` de AQICN configurada en un archivo `.env` en la raíz del proyecto. Si aún no tienes una API_KEY, puedes obtenerla registrándote en [AQICN](https://aqicn.org/data-platform/token/es/) y siguiendo las instrucciones para obtener tu clave de API.
-
-2. Además, necesitarás configurar las credenciales de tu base de datos Redshift en el mismo archivo `.env`. Asegúrate de incluir las siguientes variables de entorno:
-
-   ```plaintext
-   DATABASE_USER=nombre_de_usuario_de_redshift
-   PASSWORD=contraseña_de_redshift
-   HOST=host_de_redshift
-   PORT=puerto_de_redshift
-   DB=nombre_de_la_base_de_datos_redshift
-   ```
-
-   Una vez configuradas las credenciales en el archivo .env, puedes ejecutar el script principal main.py para comenzar el proceso de extracción, transformación y carga de los datos.
-
-## Instalación y uso con Docker
-
-Si prefieres ejecutar el programa en Docker, asegúrate de tener Docker instalado en tu máquina local. Puedes descargar e instalar Docker desde [este enlace](https://www.docker.com/get-started).
-
-Una vez que tengas Docker instalado, sigue estos pasos:
-
-1. Clona este repositorio en tu máquina local si no lo has hecho ya.
-   (recuerda crear un archivo .env y agregar las credenciales).
-
-2. Abre una terminal y navega hasta la carpeta raíz del proyecto.
-
-3. Construye la imagen Docker ejecutando el siguiente comando:
-
-   ```bash
-   docker build -t nombre_imagen .
-   ```
-
-   Asegúrate de reemplazar `nombre_imagen` con el nombre que deseas darle a tu imagen Docker.
-
-4. Una vez que la imagen se haya construido correctamente, puedes ejecutar el contenedor Docker utilizando el siguiente comando:
-
-   ```bash
-   docker run -it --name nombre_contenedor nombre_imagen
-   ```
-
-   Reemplaza `nombre_contenedor` con el nombre que deseas darle a tu contenedor Docker y `nombre_imagen` con el nombre de la imagen que has creado anteriormente.
-
-¡Y eso es todo! Ahora deberías poder ejecutar el ETL en Docker de manera fácil y rápida.
+Una vez configurado y ejecutado, el proyecto se ejecutará automáticamente todos los días a las 10 de la noche para extraer los datos del día y enviar alertas por correo electrónico si es necesario.
