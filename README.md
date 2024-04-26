@@ -6,6 +6,8 @@ Este proyecto se centra en la extracción, transformación y carga de datos sobr
 
 La calidad del aire es un factor crítico que influye en la salud y el bienestar de las comunidades urbanas en todo el mundo. Este proyecto se enfoca en la extracción, transformación y carga de datos sobre la calidad del aire en ciudades específicas utilizando las APIs de [OpenWeatherMap](https://openweathermap.org/) y [LocationIQ](https://es.locationiq.com/). La combinación de estos dos conjuntos de datos enriquece la comprensión y el análisis de la calidad del aire al incorporar información tanto meteorológica como geográfica.
 
+![img_air](https://github.com/ChristianLaurean/ETL_calidad_aire/blob/main/assets/img_air.jpg)
+
 #### Niveles de Calidad del Aire
 
 | AQI | Nivel de contaminación del aire       | Implicaciones para la salud                                                                                                                                                   |
@@ -15,6 +17,10 @@ La calidad del aire es un factor crítico que influye en la salud y el bienestar
 | 3   | Dañina a la salud en grupos sensibles | Los miembros de grupos sensibles pueden experimentar efectos en la salud. La población en general no está en riesgo.                                                          |
 | 4   | Dañina a la salud                     | Todos pueden comenzar a experimentar efectos en la salud; las personas en grupos sensibles pueden experimentar efectos más serios en la salud.                                |
 | 5   | Muy dañina a la salud                 | Advertencia de salud: más efectos de salud esperados.                                                                                                                         |
+
+El siguiente diagrama ilustra la arquitectura de la canalización de datos de un extremo a otro.
+
+![diagram](https://github.com/ChristianLaurean/ETL_calidad_aire/blob/main/assets/diagramETL.png)
 
 ## Tecnologías Utilizadas
 
