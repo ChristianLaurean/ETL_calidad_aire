@@ -1,0 +1,52 @@
+[2024-04-23T21:07:05.592+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-23T21:07:05.613+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.trasform manual__2024-04-23T21:05:11.136032+00:00 [queued]>
+[2024-04-23T21:07:05.618+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.trasform manual__2024-04-23T21:05:11.136032+00:00 [queued]>
+[2024-04-23T21:07:05.618+0000] {taskinstance.py:2303} INFO - Starting attempt 2 of 2
+[2024-04-23T21:07:05.627+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): trasform> on 2024-04-23 21:05:11.136032+00:00
+[2024-04-23T21:07:05.635+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'trasform', 'manual__2024-04-23T21:05:11.136032+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/air_quality/air_quality_dag.py', '--cfg-path', '/tmp/tmpz2jvimsi']
+[2024-04-23T21:07:05.637+0000] {standard_task_runner.py:91} INFO - Job 42: Subtask trasform
+[2024-04-23T21:07:05.639+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1477) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-04-23T21:07:05.639+0000] {standard_task_runner.py:63} INFO - Started process 1479 to run task
+[2024-04-23T21:07:05.668+0000] {task_command.py:426} INFO - Running <TaskInstance: pipeline.trasform manual__2024-04-23T21:05:11.136032+00:00 [running]> on host 1b9b58bb0dc3
+[2024-04-23T21:07:05.724+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='trasform' AIRFLOW_CTX_EXECUTION_DATE='2024-04-23T21:05:11.136032+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-23T21:05:11.136032+00:00'
+[2024-04-23T21:07:05.725+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-23T21:07:05.750+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-23T21:07:05.750+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/air_quality/tasks.py", line 17, in trasform
+    df_air = connex.transform()
+             ^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/ConnectorAirQuality.py", line 62, in transform
+    df_air.columns = LIST_NOMBRE_COLUMNAS
+    ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 6218, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 767, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/internals/managers.py", line 227, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/internals/base.py", line 85, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 11 elements, new values have 12 elements
+[2024-04-23T21:07:05.761+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=pipeline, task_id=trasform, execution_date=20240423T210511, start_date=20240423T210705, end_date=20240423T210705
+[2024-04-23T21:07:05.768+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 42 for task trasform (Length mismatch: Expected axis has 11 elements, new values have 12 elements; 1479)
+[2024-04-23T21:07:05.812+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-04-23T21:07:05.827+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-04-23T21:07:05.829+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

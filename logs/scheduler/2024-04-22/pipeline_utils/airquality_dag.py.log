@@ -1,0 +1,175 @@
+[2024-04-22T17:10:58.703+0000] {processor.py:161} INFO - Started process (PID=289) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:10:58.704+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:10:58.705+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:10:58.705+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:10:58.707+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:10:58.715+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.016 seconds
+[2024-04-22T17:11:28.815+0000] {processor.py:161} INFO - Started process (PID=300) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:11:28.817+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:11:28.818+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:11:28.818+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:11:28.819+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:11:28.829+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.018 seconds
+[2024-04-22T17:11:58.923+0000] {processor.py:161} INFO - Started process (PID=311) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:11:58.923+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:11:58.925+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:11:58.924+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:11:58.926+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:11:58.935+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.017 seconds
+[2024-04-22T17:12:29.042+0000] {processor.py:161} INFO - Started process (PID=322) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:12:29.043+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:12:29.045+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:12:29.044+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:12:29.046+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:12:29.056+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.019 seconds
+[2024-04-22T17:12:59.153+0000] {processor.py:161} INFO - Started process (PID=333) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:12:59.153+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:12:59.155+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:12:59.154+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:12:59.156+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:12:59.165+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.018 seconds
+[2024-04-22T17:13:09.198+0000] {processor.py:161} INFO - Started process (PID=338) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:13:09.199+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:13:09.201+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:13:09.201+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:13:09.202+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:13:09.211+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.017 seconds
+[2024-04-22T17:13:39.319+0000] {processor.py:161} INFO - Started process (PID=349) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:13:39.320+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:13:39.321+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:13:39.321+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:13:39.322+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:13:39.332+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.017 seconds
+[2024-04-22T17:14:09.434+0000] {processor.py:161} INFO - Started process (PID=360) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:14:09.435+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:14:09.436+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:14:09.436+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:14:09.437+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:14:09.447+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.017 seconds
+[2024-04-22T17:14:39.553+0000] {processor.py:161} INFO - Started process (PID=371) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:14:39.553+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:14:39.554+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:14:39.554+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:14:39.556+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:14:39.565+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.018 seconds
+[2024-04-22T17:15:09.670+0000] {processor.py:161} INFO - Started process (PID=382) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:15:09.671+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:15:09.672+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:15:09.672+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:15:09.673+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:15:09.683+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.017 seconds
+[2024-04-22T17:15:39.789+0000] {processor.py:161} INFO - Started process (PID=393) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:15:39.789+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:15:39.791+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:15:39.790+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:15:39.792+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:15:39.802+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.018 seconds
+[2024-04-22T17:15:56.863+0000] {processor.py:161} INFO - Started process (PID=404) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:15:56.864+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:15:56.865+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:15:56.865+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:15:56.871+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:15:56.867+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/pipeline_utils/airquality_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/pipeline_utils/airquality_dag.py", line 6, in <module>
+    with DAG(
+         ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dag.py", line 564, in __init__
+    self.start_date = timezone.convert_to_utc(start_date)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/timezone.py", line 98, in convert_to_utc
+    if not is_localized(value):
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/timezone.py", line 50, in is_localized
+    return value.utcoffset() is not None
+           ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'utcoffset'
+[2024-04-22T17:15:56.873+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:15:56.887+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.029 seconds
+[2024-04-22T17:16:26.988+0000] {processor.py:161} INFO - Started process (PID=415) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:16:26.989+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:16:26.990+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:16:26.990+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:16:26.995+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:16:26.992+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/pipeline_utils/airquality_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/pipeline_utils/airquality_dag.py", line 6, in <module>
+    with DAG(
+         ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dag.py", line 564, in __init__
+    self.start_date = timezone.convert_to_utc(start_date)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/timezone.py", line 98, in convert_to_utc
+    if not is_localized(value):
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/timezone.py", line 50, in is_localized
+    return value.utcoffset() is not None
+           ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'utcoffset'
+[2024-04-22T17:16:26.997+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:16:27.010+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.028 seconds
+[2024-04-22T17:16:57.098+0000] {processor.py:161} INFO - Started process (PID=426) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:16:57.099+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:16:57.100+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:16:57.100+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:16:57.105+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:16:57.102+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/pipeline_utils/airquality_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/pipeline_utils/airquality_dag.py", line 6, in <module>
+    with DAG(
+         ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dag.py", line 564, in __init__
+    self.start_date = timezone.convert_to_utc(start_date)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/timezone.py", line 98, in convert_to_utc
+    if not is_localized(value):
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/timezone.py", line 50, in is_localized
+    return value.utcoffset() is not None
+           ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'utcoffset'
+[2024-04-22T17:16:57.107+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:16:57.121+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.027 seconds
+[2024-04-22T17:17:27.211+0000] {processor.py:161} INFO - Started process (PID=438) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:17:27.211+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:17:27.213+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:17:27.213+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:17:27.218+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:17:27.214+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/pipeline_utils/airquality_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/pipeline_utils/airquality_dag.py", line 6, in <module>
+    with DAG(
+         ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dag.py", line 564, in __init__
+    self.start_date = timezone.convert_to_utc(start_date)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/timezone.py", line 98, in convert_to_utc
+    if not is_localized(value):
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/timezone.py", line 50, in is_localized
+    return value.utcoffset() is not None
+           ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'utcoffset'
+[2024-04-22T17:17:27.220+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:17:27.234+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.028 seconds
+[2024-04-22T17:17:57.325+0000] {processor.py:161} INFO - Started process (PID=449) to work on /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:17:57.326+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/pipeline_utils/airquality_dag.py for tasks to queue
+[2024-04-22T17:17:57.328+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:17:57.328+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:17:57.333+0000] {logging_mixin.py:188} INFO - [2024-04-22T17:17:57.329+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/pipeline_utils/airquality_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/pipeline_utils/airquality_dag.py", line 6, in <module>
+    with DAG(
+         ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dag.py", line 564, in __init__
+    self.start_date = timezone.convert_to_utc(start_date)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/timezone.py", line 98, in convert_to_utc
+    if not is_localized(value):
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/timezone.py", line 50, in is_localized
+    return value.utcoffset() is not None
+           ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'utcoffset'
+[2024-04-22T17:17:57.335+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/pipeline_utils/airquality_dag.py
+[2024-04-22T17:17:57.351+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/pipeline_utils/airquality_dag.py took 0.031 seconds

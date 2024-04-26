@@ -1,12 +1,22 @@
-FROM python:3.10
+FROM apache/airflow:2.9.0
 
-WORKDIR /app
+USER root
 
-COPY main.py /app/main.py
-COPY constants.py /app/constants.py
-COPY .env /app/.env
-COPY requirements.txt /app/requirements.txt
+# Solucionar lo de psgo2
+RUN apt-get update \
+    && apt-get install -y \
+        gcc \
+        python3-dev \
+        libpq-dev
 
-RUN pip install -r requirements.txt
+USER airflow
 
-CMD ["python", "main.py"]
+COPY requirements.txt ./requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+#ENV PATH="/opt/airflow/src:/opt/airflow/dags:${PATH}"
+ENV PYTHONPATH="/opt/airflow/src:/opt/airflow/dags:${PYTHONPATH}"
+
+
+ENTRYPOINT [ "/usr/bin/dumb-init", "--", "/entrypoint" ]
+CMD []

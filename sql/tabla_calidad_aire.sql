@@ -1,20 +1,22 @@
-CREATE TABLE calidad_aire (
-    fecha_hora_medicion TIMESTAMP,
-    ciudad VARCHAR(100),
-    latitud FLOAT,
-    longitud FLOAT,
+CREATE TABLE air_quality (
+    measurement_hour TIMESTAMP,
+    city_name VARCHAR(50),
+    country_name VARCHAR(50),
     aqi INT,
-    dominante_contaminante VARCHAR(50),
-    pm10 FLOAT,
-    pm25 FLOAT,
+    co FLOAT,
+    no FLOAT,
+    no2 FLOAT,
+    o3 FLOAT,
     so2 FLOAT,
-    temperatura FLOAT,
-    humedad_relativa FLOAT,
-    presion_atmosferica FLOAT,
-    punto_rocio FLOAT,
-    velocidad_viento FLOAT,
-    rafaga_viento FLOAT,
-    fecha_hora_carga TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(fecha_hora_medicion, ciudad)
+    pm2_5 FLOAT,
+    pm10 FLOAT,
+    nh3 FLOAT,
+    type_location VARCHAR(50),
+    importance_location VARCHAR(50),
+    latitude FLOAT,
+    longitude FLOAT,
+    load_datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(measurement_hour, city_name)
 );
+
 

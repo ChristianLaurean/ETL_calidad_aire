@@ -1,0 +1,32 @@
+[2024-04-23T15:58:12.163+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-23T15:58:12.185+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.trasform manual__2024-04-23T15:51:25.785708+00:00 [queued]>
+[2024-04-23T15:58:12.305+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.trasform manual__2024-04-23T15:51:25.785708+00:00 [queued]>
+[2024-04-23T15:58:12.306+0000] {taskinstance.py:2303} INFO - Starting attempt 3 of 3
+[2024-04-23T15:58:12.314+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): trasform> on 2024-04-23 15:51:25.785708+00:00
+[2024-04-23T15:58:12.322+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'trasform', 'manual__2024-04-23T15:51:25.785708+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/air_quality/air_quality_dag.py', '--cfg-path', '/tmp/tmphr1p6lh7']
+[2024-04-23T15:58:12.323+0000] {standard_task_runner.py:91} INFO - Job 37: Subtask trasform
+[2024-04-23T15:58:12.324+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=358) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-04-23T15:58:12.324+0000] {standard_task_runner.py:63} INFO - Started process 360 to run task
+[2024-04-23T15:58:12.355+0000] {task_command.py:426} INFO - Running <TaskInstance: pipeline.trasform manual__2024-04-23T15:51:25.785708+00:00 [running]> on host 1b9b58bb0dc3
+[2024-04-23T15:58:12.414+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='trasform' AIRFLOW_CTX_EXECUTION_DATE='2024-04-23T15:51:25.785708+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-23T15:51:25.785708+00:00'
+[2024-04-23T15:58:12.415+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-23T15:58:12.459+0000] {logging_mixin.py:188} INFO -    fecha_hora_medicion  aqi      co  ...  name_country        lat         lon
+0  2024-04-23 00:00:00    2  257.02  ...        Mexico  20.672037 -103.338396
+1  2024-04-23 01:00:00    2  236.99  ...        Mexico  20.672037 -103.338396
+2  2024-04-23 02:00:00    2  243.66  ...        Mexico  20.672037 -103.338396
+3  2024-04-23 03:00:00    2  253.68  ...        Mexico  20.672037 -103.338396
+4  2024-04-23 04:00:00    2  293.73  ...        Mexico  20.672037 -103.338396
+..                 ...  ...     ...  ...           ...        ...         ...
+60 2024-04-23 08:00:00    1  200.27  ...        Mexico  21.880487 -102.296719
+61 2024-04-23 09:00:00    1  208.62  ...        Mexico  21.880487 -102.296719
+62 2024-04-23 10:00:00    1  210.29  ...        Mexico  21.880487 -102.296719
+63 2024-04-23 11:00:00    1  208.62  ...        Mexico  21.880487 -102.296719
+64 2024-04-23 12:00:00    1  226.97  ...        Mexico  21.880487 -102.296719
+
+[65 rows x 15 columns]
+[2024-04-23T15:58:12.460+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-04-23T15:58:12.460+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-23T15:58:12.466+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=pipeline, task_id=trasform, execution_date=20240423T155125, start_date=20240423T155812, end_date=20240423T155812
+[2024-04-23T15:58:12.497+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-04-23T15:58:12.508+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-04-23T15:58:12.509+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

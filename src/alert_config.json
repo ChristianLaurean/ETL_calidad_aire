@@ -1,0 +1,11 @@
+{
+  "cities": ["Guadalajara", "Mexico"],
+  "contaminants": {
+    "pm2_5": { "min": 0, "max": 50 },
+    "pm10": { "min": 0, "max": 50 },
+    "o3": { "min": 0, "max": 100 },
+    "no2": { "min": 0, "max": 200 },
+    "so2": { "min": 0, "max": 500 },
+    "co": { "min": 0, "max": 10000 }
+  }
+}

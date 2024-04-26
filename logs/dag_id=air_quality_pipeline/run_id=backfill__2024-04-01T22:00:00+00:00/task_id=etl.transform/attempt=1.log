@@ -1,0 +1,118 @@
+[2024-04-26T17:23:14.400+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-26T17:23:14.430+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_pipeline.etl.transform backfill__2024-04-01T22:00:00+00:00 [queued]>
+[2024-04-26T17:23:14.436+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_pipeline.etl.transform backfill__2024-04-01T22:00:00+00:00 [queued]>
+[2024-04-26T17:23:14.437+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2024-04-26T17:23:14.448+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): etl.transform> on 2024-04-01 22:00:00+00:00
+[2024-04-26T17:23:14.459+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=833) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-04-26T17:23:14.460+0000] {standard_task_runner.py:63} INFO - Started process 836 to run task
+[2024-04-26T17:23:14.459+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'air_quality_pipeline', 'etl.transform', 'backfill__2024-04-01T22:00:00+00:00', '--job-id', '332', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/air_quality/air_quality_dag.py', '--cfg-path', '/tmp/tmph0jxoyaq']
+[2024-04-26T17:23:14.461+0000] {standard_task_runner.py:91} INFO - Job 332: Subtask etl.transform
+[2024-04-26T17:23:14.499+0000] {task_command.py:426} INFO - Running <TaskInstance: air_quality_pipeline.etl.transform backfill__2024-04-01T22:00:00+00:00 [running]> on host 4718ecf2379c
+[2024-04-26T17:23:14.574+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='air_quality_pipeline' AIRFLOW_CTX_TASK_ID='etl.transform' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T22:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='backfill__2024-04-01T22:00:00+00:00'
+[2024-04-26T17:23:14.575+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-26T17:23:14.587+0000] {tasks.py:52} INFO - Transforming location data...
+[2024-04-26T17:23:14.600+0000] {LocationConnector.py:104} ERROR - Error transforming DataFrame: 'NoneType' object has no attribute 'split'
+[2024-04-26T17:23:14.600+0000] {tasks.py:54} INFO - Location data transformation complete.
+[2024-04-26T17:23:14.601+0000] {tasks.py:57} INFO - Transforming air quality data...
+[2024-04-26T17:23:14.607+0000] {AirQualityConnector.py:101} INFO - Successfully transformed DataFrame
+[2024-04-26T17:23:14.607+0000] {AirQualityConnector.py:102} INFO - Shape of transformed DataFrame: (46, 11)
+[2024-04-26T17:23:14.607+0000] {tasks.py:59} INFO - Air quality data transformation complete.
+[2024-04-26T17:23:14.608+0000] {tasks.py:62} INFO - Merging location and air quality data...
+[2024-04-26T17:23:14.608+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-26T17:23:14.608+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/air_quality/tasks.py", line 63, in transform_data
+    merged_data = pd.merge(transformed_location_data, transformed_air_quality_data, on="latitude", how="inner")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/reshape/merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/reshape/merge.py", line 791, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/reshape/merge.py", line 1287, in _get_merge_keys
+    left_keys.append(left._get_label_or_level_values(lk))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 1844, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'latitude'
+[2024-04-26T17:23:14.620+0000] {taskinstance.py:1205} INFO - Marking task as UP_FOR_RETRY. dag_id=air_quality_pipeline, task_id=etl.transform, execution_date=20240401T220000, start_date=20240426T172314, end_date=20240426T172314
+[2024-04-26T17:23:14.628+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 332 for task etl.transform ('latitude'; 836)
+[2024-04-26T17:23:14.674+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-04-26T17:23:14.690+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-04-26T17:23:14.691+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-04-26T17:31:11.667+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-26T17:31:11.693+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_pipeline.etl.transform backfill__2024-04-01T22:00:00+00:00 [queued]>
+[2024-04-26T17:31:11.698+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_pipeline.etl.transform backfill__2024-04-01T22:00:00+00:00 [queued]>
+[2024-04-26T17:31:11.698+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2024-04-26T17:31:11.706+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): etl.transform> on 2024-04-01 22:00:00+00:00
+[2024-04-26T17:31:11.716+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1229) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-04-26T17:31:11.717+0000] {standard_task_runner.py:63} INFO - Started process 1230 to run task
+[2024-04-26T17:31:11.716+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'air_quality_pipeline', 'etl.transform', 'backfill__2024-04-01T22:00:00+00:00', '--job-id', '373', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/air_quality/air_quality_dag.py', '--cfg-path', '/tmp/tmpjv37d7ib']
+[2024-04-26T17:31:11.717+0000] {standard_task_runner.py:91} INFO - Job 373: Subtask etl.transform
+[2024-04-26T17:31:11.753+0000] {task_command.py:426} INFO - Running <TaskInstance: air_quality_pipeline.etl.transform backfill__2024-04-01T22:00:00+00:00 [running]> on host 4718ecf2379c
+[2024-04-26T17:31:11.812+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='air_quality_pipeline' AIRFLOW_CTX_TASK_ID='etl.transform' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T22:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='backfill__2024-04-01T22:00:00+00:00'
+[2024-04-26T17:31:11.812+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-26T17:31:11.821+0000] {tasks.py:52} INFO - Transforming location data...
+[2024-04-26T17:31:11.832+0000] {LocationConnector.py:100} INFO - Successfully transformed DataFrame
+[2024-04-26T17:31:11.832+0000] {LocationConnector.py:101} INFO - Shape of transformed DataFrame: (3, 8)
+[2024-04-26T17:31:11.832+0000] {tasks.py:54} INFO - Location data transformation complete.
+[2024-04-26T17:31:11.832+0000] {tasks.py:57} INFO - Transforming air quality data...
+[2024-04-26T17:31:11.836+0000] {AirQualityConnector.py:101} INFO - Successfully transformed DataFrame
+[2024-04-26T17:31:11.836+0000] {AirQualityConnector.py:102} INFO - Shape of transformed DataFrame: (69, 11)
+[2024-04-26T17:31:11.837+0000] {tasks.py:59} INFO - Air quality data transformation complete.
+[2024-04-26T17:31:11.837+0000] {tasks.py:62} INFO - Merging location and air quality data...
+[2024-04-26T17:31:11.839+0000] {tasks.py:64} INFO - Location and air quality data merge complete.
+[2024-04-26T17:31:11.839+0000] {tasks.py:70} INFO - Saving transformed data to CSV...
+[2024-04-26T17:31:11.841+0000] {tasks.py:72} INFO - Transformed data saved to CSV.
+[2024-04-26T17:31:11.842+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-04-26T17:31:11.842+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-26T17:31:11.849+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=air_quality_pipeline, task_id=etl.transform, execution_date=20240401T220000, start_date=20240426T173111, end_date=20240426T173111
+[2024-04-26T17:31:11.889+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-04-26T17:31:11.917+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-04-26T17:31:11.918+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-04-26T17:39:32.945+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-26T17:39:32.972+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_pipeline.etl.transform backfill__2024-04-01T22:00:00+00:00 [queued]>
+[2024-04-26T17:39:32.977+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_pipeline.etl.transform backfill__2024-04-01T22:00:00+00:00 [queued]>
+[2024-04-26T17:39:32.977+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2024-04-26T17:39:32.984+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): etl.transform> on 2024-04-01 22:00:00+00:00
+[2024-04-26T17:39:32.993+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1563) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-04-26T17:39:32.994+0000] {standard_task_runner.py:63} INFO - Started process 1564 to run task
+[2024-04-26T17:39:32.993+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'air_quality_pipeline', 'etl.transform', 'backfill__2024-04-01T22:00:00+00:00', '--job-id', '390', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/air_quality/air_quality_dag.py', '--cfg-path', '/tmp/tmp5f9fxy2i']
+[2024-04-26T17:39:32.994+0000] {standard_task_runner.py:91} INFO - Job 390: Subtask etl.transform
+[2024-04-26T17:39:33.027+0000] {task_command.py:426} INFO - Running <TaskInstance: air_quality_pipeline.etl.transform backfill__2024-04-01T22:00:00+00:00 [running]> on host 4718ecf2379c
+[2024-04-26T17:39:33.086+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='air_quality_pipeline' AIRFLOW_CTX_TASK_ID='etl.transform' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T22:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='backfill__2024-04-01T22:00:00+00:00'
+[2024-04-26T17:39:33.087+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-26T17:39:33.096+0000] {tasks.py:52} INFO - Transforming location data...
+[2024-04-26T17:39:33.106+0000] {LocationConnector.py:100} INFO - Successfully transformed DataFrame
+[2024-04-26T17:39:33.107+0000] {LocationConnector.py:101} INFO - Shape of transformed DataFrame: (3, 8)
+[2024-04-26T17:39:33.107+0000] {tasks.py:54} INFO - Location data transformation complete.
+[2024-04-26T17:39:33.107+0000] {tasks.py:57} INFO - Transforming air quality data...
+[2024-04-26T17:39:33.111+0000] {AirQualityConnector.py:101} INFO - Successfully transformed DataFrame
+[2024-04-26T17:39:33.111+0000] {AirQualityConnector.py:102} INFO - Shape of transformed DataFrame: (69, 11)
+[2024-04-26T17:39:33.111+0000] {tasks.py:59} INFO - Air quality data transformation complete.
+[2024-04-26T17:39:33.111+0000] {tasks.py:62} INFO - Merging location and air quality data...
+[2024-04-26T17:39:33.113+0000] {tasks.py:64} INFO - Location and air quality data merge complete.
+[2024-04-26T17:39:33.114+0000] {tasks.py:70} INFO - Saving transformed data to CSV...
+[2024-04-26T17:39:33.116+0000] {tasks.py:72} INFO - Transformed data saved to CSV.
+[2024-04-26T17:39:33.116+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-04-26T17:39:33.116+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-26T17:39:33.124+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=air_quality_pipeline, task_id=etl.transform, execution_date=20240401T220000, start_date=20240426T173932, end_date=20240426T173933
+[2024-04-26T17:39:33.166+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-04-26T17:39:33.190+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-04-26T17:39:33.191+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

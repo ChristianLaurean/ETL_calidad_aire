@@ -1,0 +1,54 @@
+[2024-04-26T17:17:00.056+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-26T17:17:00.078+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_pipeline.etl.extract scheduled__2024-04-24T22:00:00+00:00 [queued]>
+[2024-04-26T17:17:00.082+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_pipeline.etl.extract scheduled__2024-04-24T22:00:00+00:00 [queued]>
+[2024-04-26T17:17:00.082+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2024-04-26T17:17:00.208+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): etl.extract> on 2024-04-24 22:00:00+00:00
+[2024-04-26T17:17:00.218+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1236) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-04-26T17:17:00.219+0000] {standard_task_runner.py:63} INFO - Started process 1238 to run task
+[2024-04-26T17:17:00.217+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'air_quality_pipeline', 'etl.extract', 'scheduled__2024-04-24T22:00:00+00:00', '--job-id', '302', '--raw', '--subdir', 'DAGS_FOLDER/air_quality/air_quality_dag.py', '--cfg-path', '/tmp/tmpb1_ru3dh']
+[2024-04-26T17:17:00.219+0000] {standard_task_runner.py:91} INFO - Job 302: Subtask etl.extract
+[2024-04-26T17:17:00.258+0000] {task_command.py:426} INFO - Running <TaskInstance: air_quality_pipeline.etl.extract scheduled__2024-04-24T22:00:00+00:00 [running]> on host 5fdceac7b2c7
+[2024-04-26T17:17:00.315+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='air_quality_pipeline' AIRFLOW_CTX_TASK_ID='etl.extract' AIRFLOW_CTX_EXECUTION_DATE='2024-04-24T22:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-24T22:00:00+00:00'
+[2024-04-26T17:17:00.316+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-26T17:17:00.326+0000] {tasks.py:35} INFO - Extracting location...
+[2024-04-26T17:17:00.328+0000] {LocationConnector.py:70} INFO - Extracting data for: Guadalajara
+[2024-04-26T17:17:02.974+0000] {LocationConnector.py:70} INFO - Extracting data for: Monterrey
+[2024-04-26T17:17:05.426+0000] {LocationConnector.py:70} INFO - Extracting data for: Mexico City
+[2024-04-26T17:17:06.859+0000] {LocationConnector.py:78} INFO - Successfully Extracted Location data: (3, 12)
+[2024-04-26T17:17:06.860+0000] {tasks.py:37} INFO - Location extraction complete.
+[2024-04-26T17:17:06.860+0000] {tasks.py:40} INFO - Extracting air quality data...
+[2024-04-26T17:17:12.407+0000] {AirQualityConnector.py:85} INFO - Successfully Extracted air quality data: (69, 11)
+[2024-04-26T17:17:12.408+0000] {tasks.py:42} INFO - Air quality data extraction complete.
+[2024-04-26T17:17:12.408+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-04-26T17:17:12.408+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-26T17:17:12.416+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=air_quality_pipeline, task_id=etl.extract, execution_date=20240424T220000, start_date=20240426T171700, end_date=20240426T171712
+[2024-04-26T17:17:12.471+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-04-26T17:17:12.488+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-04-26T17:17:12.490+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-04-26T17:33:20.149+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-26T17:33:20.171+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_pipeline.etl.extract scheduled__2024-04-24T22:00:00+00:00 [queued]>
+[2024-04-26T17:33:20.293+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_pipeline.etl.extract scheduled__2024-04-24T22:00:00+00:00 [queued]>
+[2024-04-26T17:33:20.293+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2024-04-26T17:33:20.301+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): etl.extract> on 2024-04-24 22:00:00+00:00
+[2024-04-26T17:33:20.311+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1642) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-04-26T17:33:20.311+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'air_quality_pipeline', 'etl.extract', 'scheduled__2024-04-24T22:00:00+00:00', '--job-id', '383', '--raw', '--subdir', 'DAGS_FOLDER/air_quality/air_quality_dag.py', '--cfg-path', '/tmp/tmpp3nwagmx']
+[2024-04-26T17:33:20.312+0000] {standard_task_runner.py:63} INFO - Started process 1644 to run task
+[2024-04-26T17:33:20.312+0000] {standard_task_runner.py:91} INFO - Job 383: Subtask etl.extract
+[2024-04-26T17:33:20.345+0000] {task_command.py:426} INFO - Running <TaskInstance: air_quality_pipeline.etl.extract scheduled__2024-04-24T22:00:00+00:00 [running]> on host 5fdceac7b2c7
+[2024-04-26T17:33:20.403+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='air_quality_pipeline' AIRFLOW_CTX_TASK_ID='etl.extract' AIRFLOW_CTX_EXECUTION_DATE='2024-04-24T22:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-24T22:00:00+00:00'
+[2024-04-26T17:33:20.404+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-26T17:33:20.412+0000] {tasks.py:35} INFO - Extracting location...
+[2024-04-26T17:33:20.414+0000] {LocationConnector.py:70} INFO - Extracting data for: Guadalajara
+[2024-04-26T17:33:23.856+0000] {LocationConnector.py:70} INFO - Extracting data for: Monterrey
+[2024-04-26T17:33:26.239+0000] {LocationConnector.py:70} INFO - Extracting data for: Mexico City
+[2024-04-26T17:33:29.651+0000] {LocationConnector.py:78} INFO - Successfully Extracted Location data: (3, 12)
+[2024-04-26T17:33:29.653+0000] {tasks.py:37} INFO - Location extraction complete.
+[2024-04-26T17:33:29.653+0000] {tasks.py:40} INFO - Extracting air quality data...
+[2024-04-26T17:33:39.141+0000] {AirQualityConnector.py:85} INFO - Successfully Extracted air quality data: (69, 11)
+[2024-04-26T17:33:39.141+0000] {tasks.py:42} INFO - Air quality data extraction complete.
+[2024-04-26T17:33:39.141+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-04-26T17:33:39.142+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-26T17:33:39.151+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=air_quality_pipeline, task_id=etl.extract, execution_date=20240424T220000, start_date=20240426T173320, end_date=20240426T173339
+[2024-04-26T17:33:39.200+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-04-26T17:33:39.229+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-04-26T17:33:39.231+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

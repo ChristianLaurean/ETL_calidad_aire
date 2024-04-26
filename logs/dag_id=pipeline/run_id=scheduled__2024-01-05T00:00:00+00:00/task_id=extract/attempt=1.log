@@ -1,0 +1,99 @@
+[2024-04-22T17:54:46.336+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-22T17:54:46.358+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.extract scheduled__2024-01-05T00:00:00+00:00 [queued]>
+[2024-04-22T17:54:46.364+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.extract scheduled__2024-01-05T00:00:00+00:00 [queued]>
+[2024-04-22T17:54:46.365+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2024-04-22T17:54:46.494+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): extract> on 2024-01-05 00:00:00+00:00
+[2024-04-22T17:54:46.505+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=308) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-04-22T17:54:46.506+0000] {standard_task_runner.py:63} INFO - Started process 310 to run task
+[2024-04-22T17:54:46.504+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'extract', 'scheduled__2024-01-05T00:00:00+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/air_quality/air_quality_dag.py', '--cfg-path', '/tmp/tmpg6tv0v41']
+[2024-04-22T17:54:46.506+0000] {standard_task_runner.py:91} INFO - Job 7: Subtask extract
+[2024-04-22T17:54:46.537+0000] {task_command.py:426} INFO - Running <TaskInstance: pipeline.extract scheduled__2024-01-05T00:00:00+00:00 [running]> on host b14852dd6242
+[2024-04-22T17:54:46.594+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2024-01-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-05T00:00:00+00:00'
+[2024-04-22T17:54:46.595+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-22T17:54:46.616+0000] {ConnectorCountrys.py:71} INFO - Extracting data for: Guadalajara
+[2024-04-22T17:54:47.297+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-22T17:54:47.298+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/air_quality/tasks.py", line 7, in extract
+    conn.extract()
+  File "/opt/airflow/src/ConnectorCountrys.py", line 77, in extract
+    time.sleep(choices(LIST_NUMBERS))
+TypeError: 'list' object cannot be interpreted as an integer
+[2024-04-22T17:54:47.308+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=pipeline, task_id=extract, execution_date=20240105T000000, start_date=20240422T175446, end_date=20240422T175447
+[2024-04-22T17:54:47.319+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 7 for task extract ('list' object cannot be interpreted as an integer; 310)
+[2024-04-22T17:54:47.360+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-04-22T17:54:47.378+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-04-22T17:54:47.379+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-04-22T21:32:13.732+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-22T21:32:13.753+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.extract scheduled__2024-01-05T00:00:00+00:00 [queued]>
+[2024-04-22T21:32:13.758+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.extract scheduled__2024-01-05T00:00:00+00:00 [queued]>
+[2024-04-22T21:32:13.758+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2024-04-22T21:32:13.767+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): extract> on 2024-01-05 00:00:00+00:00
+[2024-04-22T21:32:13.775+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'extract', 'scheduled__2024-01-05T00:00:00+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/air_quality/air_quality_dag.py', '--cfg-path', '/tmp/tmp7iwhxpzf']
+[2024-04-22T21:32:13.777+0000] {standard_task_runner.py:91} INFO - Job 24: Subtask extract
+[2024-04-22T21:32:13.777+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=941) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-04-22T21:32:13.777+0000] {standard_task_runner.py:63} INFO - Started process 943 to run task
+[2024-04-22T21:32:13.809+0000] {task_command.py:426} INFO - Running <TaskInstance: pipeline.extract scheduled__2024-01-05T00:00:00+00:00 [running]> on host b14852dd6242
+[2024-04-22T21:32:13.863+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2024-01-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-05T00:00:00+00:00'
+[2024-04-22T21:32:13.864+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-22T21:32:13.874+0000] {ConnectorCountrys.py:71} INFO - Extracting data for: Guadalajara
+[2024-04-22T21:32:16.507+0000] {ConnectorCountrys.py:71} INFO - Extracting data for: Monterrey
+[2024-04-22T21:32:19.015+0000] {ConnectorCountrys.py:71} INFO - Extracting data for: Mexico City
+[2024-04-22T21:32:22.542+0000] {ConnectorCountrys.py:71} INFO - Extracting data for: Puebla
+[2024-04-22T21:32:24.025+0000] {ConnectorCountrys.py:71} INFO - Extracting data for: Aguascalientes
+[2024-04-22T21:32:25.807+0000] {ConnectorCountrys.py:81} INFO - Data extracted - Shape: (5, 12)
+[2024-04-22T21:32:39.245+0000] {ConnectorAirQuality.py:54} INFO - Datos del calidad del aire extraidos: (65, 12)
+[2024-04-22T21:32:39.245+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-04-22T21:32:39.246+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-22T21:32:39.256+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=pipeline, task_id=extract, execution_date=20240105T000000, start_date=20240422T213213, end_date=20240422T213239
+[2024-04-22T21:32:39.302+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-04-22T21:32:39.317+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-04-22T21:32:39.319+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-04-24T00:16:13.411+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-24T00:16:13.436+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.extract scheduled__2024-01-05T00:00:00+00:00 [queued]>
+[2024-04-24T00:16:13.442+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.extract scheduled__2024-01-05T00:00:00+00:00 [queued]>
+[2024-04-24T00:16:13.442+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2024-04-24T00:16:13.577+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): extract> on 2024-01-05 00:00:00+00:00
+[2024-04-24T00:16:13.586+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'extract', 'scheduled__2024-01-05T00:00:00+00:00', '--job-id', '78', '--raw', '--subdir', 'DAGS_FOLDER/air_quality/air_quality_dag.py', '--cfg-path', '/tmp/tmppqq6509d']
+[2024-04-24T00:16:13.588+0000] {standard_task_runner.py:91} INFO - Job 78: Subtask extract
+[2024-04-24T00:16:13.588+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1930) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-04-24T00:16:13.588+0000] {standard_task_runner.py:63} INFO - Started process 1932 to run task
+[2024-04-24T00:16:13.621+0000] {task_command.py:426} INFO - Running <TaskInstance: pipeline.extract scheduled__2024-01-05T00:00:00+00:00 [running]> on host 8e318e51dc55
+[2024-04-24T00:16:13.677+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2024-01-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-05T00:00:00+00:00'
+[2024-04-24T00:16:13.678+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-24T00:16:13.689+0000] {LocationConnector.py:66} INFO - Extracting data for: Guadalajara
+[2024-04-24T00:16:15.167+0000] {LocationConnector.py:66} INFO - Extracting data for: Monterrey
+[2024-04-24T00:16:16.592+0000] {LocationConnector.py:66} INFO - Extracting data for: Mexico City
+[2024-04-24T00:16:20.017+0000] {LocationConnector.py:66} INFO - Extracting data for: Puebla
+[2024-04-24T00:16:22.408+0000] {LocationConnector.py:66} INFO - Extracting data for: Aguascalientes
+[2024-04-24T00:16:25.794+0000] {LocationConnector.py:66} INFO - Extracting data for: Merida
+[2024-04-24T00:16:27.216+0000] {LocationConnector.py:66} INFO - Extracting data for: Toluca
+[2024-04-24T00:16:29.611+0000] {LocationConnector.py:66} INFO - Extracting data for: Durango
+[2024-04-24T00:16:32.025+0000] {LocationConnector.py:66} INFO - Extracting data for: Chihuahua
+[2024-04-24T00:16:35.455+0000] {LocationConnector.py:66} INFO - Extracting data for: San luis Potosi
+[2024-04-24T00:16:37.876+0000] {LocationConnector.py:66} INFO - Extracting data for: Leon
+[2024-04-24T00:16:40.304+0000] {LocationConnector.py:66} INFO - Extracting data for: Buenos Aires
+[2024-04-24T00:16:42.723+0000] {LocationConnector.py:66} INFO - Extracting data for: Medellin
+[2024-04-24T00:16:44.138+0000] {LocationConnector.py:78} INFO - Data extracted - Shape: (13, 12)
+[2024-04-24T00:17:16.264+0000] {AirQualityConnector.py:93} INFO - Extracted air quality data: (312, 11)
+[2024-04-24T00:17:16.265+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-04-24T00:17:16.265+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-24T00:17:16.275+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=pipeline, task_id=extract, execution_date=20240105T000000, start_date=20240424T001613, end_date=20240424T001716
+[2024-04-24T00:17:16.326+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-04-24T00:17:16.345+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-04-24T00:17:16.346+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

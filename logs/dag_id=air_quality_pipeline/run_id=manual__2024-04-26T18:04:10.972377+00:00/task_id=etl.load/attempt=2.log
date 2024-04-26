@@ -1,0 +1,23 @@
+[2024-04-26T18:09:19.584+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-26T18:09:19.607+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_pipeline.etl.load manual__2024-04-26T18:04:10.972377+00:00 [queued]>
+[2024-04-26T18:09:19.737+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_pipeline.etl.load manual__2024-04-26T18:04:10.972377+00:00 [queued]>
+[2024-04-26T18:09:19.737+0000] {taskinstance.py:2303} INFO - Starting attempt 2 of 3
+[2024-04-26T18:09:19.746+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): etl.load> on 2024-04-26 18:04:10.972377+00:00
+[2024-04-26T18:09:19.757+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2546) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-04-26T18:09:19.757+0000] {standard_task_runner.py:63} INFO - Started process 2548 to run task
+[2024-04-26T18:09:19.755+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'air_quality_pipeline', 'etl.load', 'manual__2024-04-26T18:04:10.972377+00:00', '--job-id', '420', '--raw', '--subdir', 'DAGS_FOLDER/air_quality/air_quality_dag.py', '--cfg-path', '/tmp/tmptycw78h_']
+[2024-04-26T18:09:19.758+0000] {standard_task_runner.py:91} INFO - Job 420: Subtask etl.load
+[2024-04-26T18:09:19.790+0000] {task_command.py:426} INFO - Running <TaskInstance: air_quality_pipeline.etl.load manual__2024-04-26T18:04:10.972377+00:00 [running]> on host 5fdceac7b2c7
+[2024-04-26T18:09:19.849+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='air_quality_pipeline' AIRFLOW_CTX_TASK_ID='etl.load' AIRFLOW_CTX_EXECUTION_DATE='2024-04-26T18:04:10.972377+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-26T18:04:10.972377+00:00'
+[2024-04-26T18:09:19.850+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-26T18:09:19.858+0000] {tasks.py:82} INFO - Loading transformed data into Redshift...
+[2024-04-26T18:09:19.859+0000] {RedShiftLoader.py:55} INFO - Loading data into Redshift
+[2024-04-26T18:09:44.900+0000] {RedShiftLoader.py:66} INFO - Data inserted successfully
+[2024-04-26T18:09:44.900+0000] {RedShiftLoader.py:79} INFO - Connection closed
+[2024-04-26T18:09:44.901+0000] {tasks.py:85} INFO - Transformed data loaded into Redshift.
+[2024-04-26T18:09:44.901+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-04-26T18:09:44.901+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-26T18:09:44.911+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=air_quality_pipeline, task_id=etl.load, execution_date=20240426T180410, start_date=20240426T180919, end_date=20240426T180944
+[2024-04-26T18:09:44.949+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-04-26T18:09:44.964+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-04-26T18:09:44.966+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
