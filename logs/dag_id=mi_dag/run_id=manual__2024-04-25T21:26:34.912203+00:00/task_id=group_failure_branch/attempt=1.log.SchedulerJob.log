@@ -1,1 +1,0 @@
-[2024-04-25T22:26:11.101+0000] {task_context_logger.py:104} ERROR - Executor reports task instance <TaskInstance: mi_dag.group_failure_branch manual__2024-04-25T21:26:34.912203+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?
