@@ -99,6 +99,8 @@ class AirQualityAPIConnector:
         try:
             df_air = pd.read_json("air_data.json")
             df_air["dt"] = pd.to_datetime(df_air["dt"], unit='s')
+            df_air["extraction_date"] = pd.to_datetime(df_air["extraction_date"], unit='ms')
+            print(df_air)
             df_air.columns = LIST_COLUMN_NAMES_AIR
             logging.info("Successfully transformed DataFrame")
             logging.info(f"Shape of transformed DataFrame: {df_air.shape}")
