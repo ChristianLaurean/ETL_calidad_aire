@@ -66,6 +66,7 @@ class AirQualityAPIConnector:
             date (str): The date for which to extract air quality data.
 
         """
+        extraction_date = datetime.today().date()  # Get current date
         date_object = datetime.strptime(date, "%Y-%m-%d")
         date_plus_22_hours = date_object + timedelta(hours=22)
         unix_start = int(date_object.timestamp())
@@ -77,6 +78,7 @@ class AirQualityAPIConnector:
             if air_quality_data:
                 air_quality_df = pd.json_normalize(air_quality_data)
                 air_quality_df["lat"] = location[0]
+                air_quality_df["extraction_date"] = extraction_date
                 df_air_quality = pd.concat([df_air_quality, air_quality_df])
             time.sleep(choice(LIST_NUMBERS))
 

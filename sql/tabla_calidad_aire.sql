@@ -16,7 +16,9 @@ CREATE TABLE air_quality (
     latitude FLOAT,
     longitude FLOAT,
     load_datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    extraction_date DATE,
     PRIMARY KEY(measurement_hour, city_name)
 );
+
 
 
